@@ -23,6 +23,7 @@ Exported VBA module with a few functions.
      Click "OK"
 
      Additional regex that can be inserted, as needed:
+   
        International Phone Numbers:
          ^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$
         
