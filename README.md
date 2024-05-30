@@ -7,8 +7,8 @@ Exported VBA module with a few functions.
      Iterates through all combinations of the two columns
      Outputs name combinations to Sheet1 starting in column E
 2. ReplaceNamesWithFakes
-     First variable construcion hold the column where the names are (future update will include pop-up input instead)
-     Script iterates through the cells in the column, replacing with rnadom names from the output of GenerateNameCombinations
+     The first variable construcion hold the column where the names are (future update will include pop-up input instead)
+     Script iterates through the cells in the column, replacing with random names from the output of GenerateNameCombinations
      Starts at the second row that is not empty to skip header
      Allows for 15% chance of duplication of names
      Does not populate any cells that were empty
