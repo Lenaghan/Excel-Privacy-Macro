@@ -2,21 +2,21 @@
 
 ### pii_scrubber.bas
 Exported VBA module with a few functions.
-1. GenerateNameCombinations
+1. GenerateNameCombinations \n
      Needs a table with two columns in Sheet1 (FirstName, LastName).
      Iterates through all combinations of the two columns.
      Outputs name combinations to Sheet1 starting in column E.
-2. ReplaceNamesWithFakes
+2. ReplaceNamesWithFakes \n
      The first variable construcion hold the column where the names are (future update will include pop-up input instead).
      Script iterates through the cells in the column, replacing with random names from the output of GenerateNameCombinations.
      Starts at the second row that is not empty to skip header.
      Allows for 15% chance of duplication of names.
      Does not populate any cells that were empty
      Call ResetCell to clear existing formatting before replacing any name.
-3. ResetCell
+3. ResetCell \n
      Sets all cell formats to False, 0 or xlAutomatic
      Sets font to 11pt Arial 
-4. ReplacePIIWithRegex - Remove sensitive and identifiable information.
+4. ReplacePIIWithRegex - Remove sensitive and identifiable information. \n
      Add VBA reference to "Microsoft VBScript Regular Expressions 5.5".
      In "Microsoft Visual Basic for Applications" window select "Tools" from the top menu. Select "References".
      Check the box next to "Microsoft VBScript Regular Expressions 5.5" to include in your workbook.
