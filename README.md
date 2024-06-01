@@ -1,4 +1,4 @@
-# Excel-Prrivacy-Macro
+# Excel-Privacy-Macro
 
 ### pii_scrubber.bas
 Exported VBA module with a few functions.
