@@ -16,7 +16,7 @@
 3. ResetCell  
      Sets all cell formats to False, 0 or xlAutomatic.
      Sets font to 11pt Arial.
-4. ReplacePIIWithRegex - Remove sensitive and identifiable information.  
+4. ReplacePIIWithRegex - Remove sensitive and identifiable information using regex.
      Add VBA reference to "Microsoft VBScript Regular Expressions 5.5".
      In "Microsoft Visual Basic for Applications" window select "Tools" from the top menu. Select "References".
      Check the box next to "Microsoft VBScript Regular Expressions 5.5" to include in your workbook.
