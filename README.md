@@ -3,7 +3,7 @@
 ### pii_scrubber.bas
 
 1. GenerateNameCombinations  
-     Needs a table with two columns in Sheet1 (FirstName, LastName).
+     Needs a table named NamesTable with two columns in Sheet1 (FirstName, LastName).
      Iterates through all combinations of the two columns.
      Outputs name combinations to Sheet1 starting in column E.
 2. ReplaceNamesWithFakes  
