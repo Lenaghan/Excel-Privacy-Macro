@@ -1,10 +1,13 @@
-Attribute VB_Name = "Module1"
+Attribute VB_Name = "piiScrubber"
 Sub GenerateNameCombinations()
-    Dim ws As Worksheet
-    Dim namesTable As ListObject
-    Dim firstNameCol As ListColumn, lastNameCol As ListColumn
-    Dim i As Long, j As Long, k As Long
-    Dim combinedNames() As String
+    Dim ws                  As Worksheet
+    Dim namesTable          As ListObject
+    Dim firstNameCol        As ListColumn
+    Dim lastNameCol         As ListColumn
+    Dim i                   As Long
+    Dim j                   As Long
+    Dim k                   As Long
+    Dim combinedNames()     As String
     
     Application.ScreenUpdating = False
     
@@ -28,26 +31,28 @@ Sub GenerateNameCombinations()
         Next j
     Next i
     
+    square = WorksheetFunction.RoundDown(VBA.Sqr(UBound(combinedNames)), 0)
+    
     ' Output loop
     rowCounter = 1
-    For i = 1 To UBound(combinedNames) Step 1000
-        For j = 1 To 1000
+    For i = 1 To UBound(combinedNames) Step square
+        For j = 1 To square
             ws.Cells(rowCounter, 5 + j - 1).Value = combinedNames(i + j - 1, 1)
         Next j
         rowCounter = rowCounter + 1
     Next i
 End Sub
 Sub ReplaceNamesWithFakes()
-    Dim rng As Range
-    Dim cell As Range
-    Dim targetSheet As Worksheet
-    Dim randomValue As Variant
-    Dim lastRow As Long
-    Dim firstNonEmptyCell As Range
-    Dim wb As Workbook
-    Dim usedNames As Collection
-    Dim duplicateChance As Double
-    Dim randomRow As Long
+    Dim rng                 As Range
+    Dim cell                As Range
+    Dim targetSheet         As Worksheet
+    Dim randomValue         As Variant
+    Dim lastRow             As Long
+    Dim firstNonEmptyCell   As Range
+    Dim wb                  As Workbook
+    Dim usedNames           As Collection
+    Dim duplicateChance     As Double
+    Dim randomRow           As Long
     
     ' adjust the constant to reflect the column to check
     Const NameColumn   As String = "C"
@@ -113,16 +118,16 @@ Sub ResetCell(cell)
 End Sub
 Private Sub ReplacePIIWithRegex()
 
-    Dim regEx As New RegExp
-    Dim strPattern As Variant
-    Dim strReplace As String
-    Dim strInput As String
-    Dim strOuput As String
-    Dim myRange As Range
-    Dim lastRow As Long
-    Dim lastColumn As Long
-    Dim arrayIndex As Long
-    Dim replacementCount As Long
+    Dim regEx               As New RegExp
+    Dim strPattern          As Variant
+    Dim strReplace          As String
+    Dim strInput            As String
+    Dim strOuput            As String
+    Dim myRange             As Range
+    Dim lastRow             As Long
+    Dim lastColumn          As Long
+    Dim arrayIndex          As Long
+    Dim replacementCount    As Long
     
     strReplace = ""
     strPattern = Array("^d{3}-\d{2}-\d{4}$", "^\d{9}$", "^\d{3}\w\d{2}\w\d{4}$$", "^[A-PR-WY][1-9]\d\s?\d{4}[1-9]$", "^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}", "^[\w\.=-]+@[\w\.-]+\.[\w]{2,3}$")
@@ -164,3 +169,4 @@ Private Sub ReplacePIIWithRegex()
         arrayIndex = arrayIndex + 1
     Next 'end of loop through patterns
     MsgBox "Total successful replacements: " & replacementCount, vbInformation, "Replacement Count"
+    End Sub
