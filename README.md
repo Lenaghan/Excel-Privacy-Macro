@@ -14,7 +14,7 @@
      Does not populate any cells that were empty.
      Call ResetCell to clear existing formatting before replacing any name.
 3. ResetCell  
-     Sets all cell formats to False, 0 or xlAutomatic.
+     Sets all cell formats to False, 0 or xlAutomatic.  
      Sets font to 11pt Arial.
 4. ReplacePIIWithRegex - Remove sensitive and identifiable information using regex.     
      Add VBA reference to "Microsoft VBScript Regular Expressions 5.5".
